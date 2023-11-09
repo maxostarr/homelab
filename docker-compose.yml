@@ -34,7 +34,7 @@ services:
       - ./nextcloud/db/data:/var/lib/postgresql/data
     environment:
       - POSTGRES_PASSWORD="${POSTGRES_PASSWORD}"
-      - POSTGRED_USER="${POSTGRES_USER}"
+      - POSTGRES_USER="${POSTGRES_USER}"
     networks:
       - nextcloud
 
