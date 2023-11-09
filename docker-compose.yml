@@ -32,6 +32,8 @@ services:
     container_name: nextcloud-db
     volumes:
       - ./nextcloud/db/data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD="${POSTGRES_PASSWORD}"
     networks:
       - nextcloud
 
