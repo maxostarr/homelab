@@ -1,0 +1,62 @@
+version: '2.2' 
+services:
+  nginxproxymanager:
+    image: 'jc21/nginx-proxy-manager:latest' 
+    container_name: nginxproxymanager
+    restart: unless-stopped 
+    ports:
+      - '80:80'
+      - '81:81'
+      - '443:443' 
+    volumes:
+      - ./nginx/data:/data
+      - ./nginx/letsencrypt:/etc/letsencrypt 
+
+  nextcloud:
+    image: lscr.io/linuxserver/nextcloud:latest
+    container_name: nextcloud
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=US/Central 
+    volumes:
+      - ./nextcloud/appdata:/config 
+      - ./nextcloud/data:/data
+    restart: unless-stopped
+    networks:
+      - nextcloud
+      - default
+  
+  nextcloud-db:
+    image: postgres:latest
+    container_name: nextcloud-db
+    volumes:
+      - ./nextcloud/db/data:/var/lib/postgresql/data
+    networks:
+      - nextcloud
+
+  audiobookshelf:
+    image: ghcr.io/advplyr/audiobookshelf:latest
+    container_name: audiobookshelf
+    volumes:
+      - ./audiobookshelf/config:/config
+      - ./audiobookshelf/metadata:/metadata
+      - ./audiobookshelf/audiobooks:/audiobooks
+      - ./audiobookshelf/podcasts:/podcasts
+
+  jellyfin:
+    image: lscr.io/linuxserver/jellyfin:latest
+    container_name: jellyfin 
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=US/Central 
+    volumes:
+      - ./jellyfin/config:/config
+      - ./jellyfin/tvshows:/data/tvshows
+      - ./jellyfin/movies:/data/movies 
+    restart: unless-stopped
+
+networks:
+  nextcloud:
+  
