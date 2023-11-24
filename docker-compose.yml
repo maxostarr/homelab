@@ -60,6 +60,16 @@ services:
       - ./jellyfin/movies:/data/movies 
     restart: unless-stopped
 
+  homeassistant:
+    container_name: homeassistant
+    image: "ghcr.io/home-assistant/home-assistant:stable"
+    volumes:
+      - ./homeassistant/config:/config
+      - /etc/localtime:/etc/localtime:ro
+      - /run/dbus:/run/dbus:ro
+    restart: unless-stopped
+    privileged: true
+    network_mode: host
 networks:
   nextcloud:
   
