@@ -75,11 +75,12 @@ services:
 networks:
   nextcloud:
   intermediate:
-    driver: macvlan
-    config:
-      - subnet: 192.168.0.0/16
-        ip_range: 192.168.0.128/27
-        gateway: 192.168.1.1
-    options:
-      parent: enp1s0f0
-    
+    ipam:
+      driver: macvlan
+      config:
+        - subnet: 192.168.0.0/16
+          ip_range: 192.168.0.128/27
+          gateway: 192.168.1.1
+      options:
+        parent: enp1s0f0
+      
