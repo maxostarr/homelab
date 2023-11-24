@@ -69,9 +69,10 @@ services:
       - /run/dbus:/run/dbus:ro
     restart: unless-stopped
     privileged: true
-    networks:
-      - intermediate
-      - default
+    network_mode: host
+    # networks:
+    #   - intermediate
+    #   - default
 networks:
   nextcloud:
   intermediate:
