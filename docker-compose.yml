@@ -73,6 +73,19 @@ services:
     # networks:
     #   - intermediate
     #   - default
+  boys_boys_mc:
+    container_name: boys_boys_mc
+    image: "itzg/minecraft-server:latest"
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      - EULA=TRUE
+      - FORGE_VERSION=47.2.0
+      - TYPE=FORGE
+      - VERSION=1.20.1
+    volumes:
+      - /opt/services/minecraft:/data
+    
 networks:
   nextcloud:
   intermediate:
