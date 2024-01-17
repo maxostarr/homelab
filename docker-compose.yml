@@ -75,7 +75,7 @@ services:
     #   - default
   crafty:
     container_name: crafty_container
-    image: "registry.gitlab.com/crafty-controller/crafty-4:4.2.1"
+    image: "registry.gitlab.com/crafty-controller/crafty-4:4.2.0"
     restart: always
     network_mode: host
     environment:
