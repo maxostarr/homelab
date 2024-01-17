@@ -75,23 +75,24 @@ services:
     #   - default
   crafty:
     container_name: crafty_container
-    image: "registry.gitlab.com/crafty-controller/crafty-4:4.2.0"
+    image: "registry.gitlab.com/crafty-controller/crafty-4:latest"
     restart: always
     network_mode: host
     environment:
-        - TZ=America/Chicago
+      - TZ=America/Chicago
+      - 
     ports:
-        - '8011:8000' # HTTP
-        - '8455:8443' # HTTPS
-        # - "8123:8123" # DYNMAP
-        # - "19132:19132/udp" # BEDROCK
-        - "25500-25600:25500-25600" # MC SERV PORT RANGE
+      - '8011:8001' # HTTP
+      - '8455:8444' # HTTPS
+      # - "8123:8123" # DYNMAP
+      # - "19132:19132/udp" # BEDROCK
+      - "25500-25600:25500-25600" # MC SERV PORT RANGE
     volumes:
-        - /home/rezo/crafty/backups:/crafty/backups
-        - /home/rezo/crafty/logs:/crafty/logs
-        - /home/rezo/crafty/servers:/crafty/servers
-        - /home/rezo/crafty/config:/crafty/app/config
-        - /home/rezo/crafty/import:/crafty/import
+      - /home/rezo/crafty/backups:/crafty/backups
+      - /home/rezo/crafty/logs:/crafty/logs
+      - /home/rezo/crafty/servers:/crafty/servers
+      - /home/rezo/crafty/config:/crafty/app/config
+      - /home/rezo/crafty/import:/crafty/import
 networks:
   nextcloud:
   intermediate:
