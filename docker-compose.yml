@@ -81,8 +81,8 @@ services:
     environment:
         - TZ=America/Chicago
     ports:
-        - "8000:8001" # HTTP
-        - "8443:8444" # HTTPS
+        - '8001:8000' # HTTP
+        - '8444:8443' # HTTPS
         # - "8123:8123" # DYNMAP
         # - "19132:19132/udp" # BEDROCK
         - "25500-25600:25500-25600" # MC SERV PORT RANGE
