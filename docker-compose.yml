@@ -80,7 +80,6 @@ services:
     network_mode: host
     environment:
       - TZ=America/Chicago
-      - 
     ports:
       - '8011:8001' # HTTP
       - '8455:8444' # HTTPS
