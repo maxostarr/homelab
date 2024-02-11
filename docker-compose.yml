@@ -56,8 +56,8 @@ services:
       - TZ=US/Central 
     volumes:
       - /home/rezo/jellyfin/config:/config
-      - /home/rezo/jellyfin/media/tvshows:/data/tvshows
-      - /home/rezo/jellyfin/media/movies:/data/movies 
+      - /mnt/trashnas/Media_Library/Shows:/data/tvshows
+      - /mnt/trashnas/Media_Library/Movies:/data/movies 
     ports:
       - '8920:8920'
       - '8096:8096'
