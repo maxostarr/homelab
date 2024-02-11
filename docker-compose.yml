@@ -55,9 +55,9 @@ services:
       - PGID=1000
       - TZ=US/Central 
     volumes:
-      - ./jellyfin/config:/config
-      - ./jellyfin/tvshows:/data/tvshows
-      - ./jellyfin/movies:/data/movies 
+      - /home/rezo/jellyfin/config:/config
+      - /home/rezo/jellyfin/tvshows:/data/tvshows
+      - /home/rezo/jellyfin/movies:/data/movies 
     ports:
       - '8920:8920'
       - '8096:8096'
