@@ -57,8 +57,13 @@ services:
     volumes:
       - /home/rezo/jellyfin/config:/config
       - /home/rezo/jellyfin/cache:/cache
-      - /mnt/trashnas/Media_Library/Shows:/data/tvshows
-      - /mnt/trashnas/Media_Library/Movies:/data/movies 
+      - /home/rezo/jellyfin/data:/data
+      - type: bind
+        source: /mnt/trashnas/Media_Library/Shows
+        target: /data/tvshows
+      - type: bind
+        source: /mnt/trashnas/Media_Library/Movies
+        target: /data/movies 
     ports:
       - '8920:8920'
       - '8096:8096'
