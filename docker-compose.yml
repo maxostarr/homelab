@@ -9,8 +9,8 @@ services:
       - '81:81'
       - '443:443' 
     volumes:
-      - ./nginx/data:/data
-      - ./nginx/letsencrypt:/etc/letsencrypt 
+      - /home/rezo/nginx/data:/data
+      - /home/rezo/nginx/letsencrypt:/etc/letsencrypt 
 
   nextcloud:
     image: lscr.io/linuxserver/nextcloud:latest
@@ -20,8 +20,8 @@ services:
       - PGID=1000
       - TZ=US/Central 
     volumes:
-      - ./nextcloud/appdata:/config 
-      - ./nextcloud/data:/data
+      - /home/rezo/nextcloud/appdata:/config 
+      - /home/rezo/nextcloud/data:/data
     restart: unless-stopped
     networks:
       - nextcloud
@@ -42,10 +42,10 @@ services:
     image: ghcr.io/advplyr/audiobookshelf:latest
     container_name: audiobookshelf
     volumes:
-      - ./audiobookshelf/config:/config
-      - ./audiobookshelf/metadata:/metadata
-      - ./audiobookshelf/audiobooks:/audiobooks
-      - ./audiobookshelf/podcasts:/podcasts
+      - /home/rezo/audiobookshelf/config:/config
+      - /home/rezo/audiobookshelf/metadata:/metadata
+      - /mnt/trashnas/Media_Library/Books:/audiobooks
+      - /mnt/trashnas/Media_Library/podcasts:/podcasts
 
   jellyfin:
     image: lscr.io/linuxserver/jellyfin:latest
@@ -76,7 +76,7 @@ services:
     container_name: homeassistant
     image: "ghcr.io/home-assistant/home-assistant:stable"
     volumes:
-      - ./homeassistant/config:/config
+      - /home/rezo/homeassistant/config:/config
       - /etc/localtime:/etc/localtime:ro
       - /run/dbus:/run/dbus:ro
     restart: unless-stopped
