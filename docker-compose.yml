@@ -45,7 +45,7 @@ services:
       - /home/rezo/audiobookshelf/config:/config
       - /home/rezo/audiobookshelf/metadata:/metadata
       - /mnt/trashnas/Media_Library/Books:/audiobooks
-      - /mnt/trashnas/Media_Library/podcasts:/podcasts
+      # - /mnt/trashnas/Media_Library/podcasts:/podcasts
 
   jellyfin:
     image: lscr.io/linuxserver/jellyfin:latest
