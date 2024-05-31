@@ -59,7 +59,7 @@ services:
       - /home/rezo/jellyfin/cache:/cache
       - /home/rezo/jellyfin/data:/data
       - type: bind
-        source: /mnt/trashnas/Jellyfin_Cache
+        source: /home/rezo/jellyfin/transcode
         target: /transcode
       - type: bind
         source: /mnt/trashnas/Media_Library/Shows
